@@ -1,0 +1,113 @@
+﻿@model CadastroRio.Models.Cliente
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Excluir</title>
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="~/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="~/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="~/Cliente/Listar"><i class="fa fa-dashboard fa-fw"></i> Consulta</a>
+                        </li>
+                        <li>
+                            <a href="~/Cliente/Create"><i class="fa fa-dashboard fa-fw"></i> Cadastro</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Deseja Realmente Excluir o cliente?</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <dl>
+                                    <dt>
+                                        <label>ID CLiente:</label>
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.idCliente)
+                                    </dd>
+
+                                    <dt>
+                                        <label>Nome:</label>
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.nomeCliente)
+                                    </dd>
+
+                                    <dt>
+                                        <label>CPF:</label>
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.cpfCliente)
+                                    </dd>
+
+                                    <dt>
+                                        <label>Data de Nascimento:</label>
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.dataNascimentoCliente)
+                                    </dd>
+
+                                    </dl>
+
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <input type="submit" value="Excluir" class="btn btn-danger" /> 
+                                    }
+                                </div>
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
+        </div>
+        </div>
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script href="~/vendor/jquery/jquery.min.js"></script>
+        <script href="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script href="~/vendor/metisMenu/metisMenu.min.js"></script>
+        <script href="~/dist/js/sb-admin-2.js"></script>
+</body>
+</html>

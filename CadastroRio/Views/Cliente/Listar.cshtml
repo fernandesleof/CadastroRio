@@ -1,0 +1,114 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Listar</title>
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="~/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="~/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+    <link href="~/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="~/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="~/Cliente/Listar"><i class="fa fa-dashboard fa-fw"></i> Consulta</a>
+                        </li>
+                        <li>
+                            <a href="~/Cliente/Create"><i class="fa fa-dashboard fa-fw"></i> Cadastro</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Clientes</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                        <!-- /.panel-heading -->
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Nome</th>
+                                                            <th>CPF</th>
+                                                            <th>Gênero</th>
+                                                            <th>Nascimento</th>
+                                                            <th>Editar</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var cliente in Model)
+                                                        {
+                                                        <tr>
+                                                            <td>@cliente.idCliente</td>
+                                                            <td>@cliente.nomeCliente</td>
+                                                            <td>@cliente.cpfCliente</td>
+                                                            <td>@cliente.generoCliente</td>
+                                                            <td>@Convert.ToString(cliente.dataNascimentoCliente).Substring(0, 10)</td>
+                                                            <td>
+                                                                @Html.ActionLink("Editar", "Edit", new { id = cliente.idCliente }) |
+                                                                @Html.ActionLink("Excluir", "Delete", new { id = cliente.idCliente })
+                                                            </td>       
+                                                        </tr>
+                                                        }
+                                                        </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.table-responsive -->
+                                        </div>
+                                        <!-- /.panel-body -->
+
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
+        });
+    </script>
+</body>
+</html>
+
+
