@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-
 namespace CadastroRio.Models
 {
     public class ClienteModel : IDisposable
@@ -13,7 +12,7 @@ namespace CadastroRio.Models
 
         public ClienteModel()
         {
-            string strConn = "Data Source=localhost;Initial Catalog=CLIENTEDB;Integrated Security=true";
+            string strConn = "Data Source=LEONOTE\\SQLEXPRESS;Initial Catalog=CLIENTEDB;Integrated Security=true";
             connection = new SqlConnection(strConn);
             connection.Open();
         }

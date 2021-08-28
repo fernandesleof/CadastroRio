@@ -12,7 +12,7 @@ namespace CadastroRio.Models
 
         public TelefoneModel()
         {
-            string strConn = "Data Source=localhost;Initial Catalog=CLIENTEDB;Integrated Security=true";
+            string strConn = "Data Source=LEONOTE\\SQLEXPRESS;Initial Catalog=CLIENTEDB;Integrated Security=true";
             connection = new SqlConnection(strConn);
             connection.Open();
         }
